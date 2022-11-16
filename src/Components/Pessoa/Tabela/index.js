@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Table, Button } from 'reactstrap';
+import { Link } from "react-router-dom";
 
 export default function Tabela() {
 
@@ -36,9 +37,7 @@ export default function Tabela() {
             .then(res => console.log(res));
     }
 
-    async function deleteById() {
-        const id = delete_id.current.value;
-
+    async function deleteById(id) {
         if (id) {
             await fetch(`${baseURL}/${id}`, { method: "delete" })
                 .then(res => res.json())
@@ -62,8 +61,8 @@ export default function Tabela() {
             </thead>
             <tbody>
                 {users.map(user => (
-                    <tr>
-                        <td ref={delete_id}>{user.idpessoa}</td>
+                    <tr key={user.idpessoa}>
+                        <td ref={delete_id}><Link to={`/presenca/${user.idpessoa}`}>{user.idpessoa}</Link></td>
                         <td><img src={user.foto} alt="foto" /></td>
                         <td>{user.nome}</td>
                         <td>{user.cpf}</td>
@@ -72,7 +71,7 @@ export default function Tabela() {
                         <td>{user.genero}</td>
                         <td>
                             <Button color="info" size="sm" >Editar</Button>
-                            <Button color="danger" size="sm" onClick={deleteById}>Deletar</Button>
+                            <Button color="danger" size="sm" onClick={deleteById(`${user.idpessoa}`)}>Deletar</Button>
                         </td>
                     </tr>
                 ))}
