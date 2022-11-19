@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from "react-router-dom";
 
 import './Login.css';
 
@@ -15,7 +16,7 @@ async function loginUser(credentials) {
 }
 
 export default function Login({ setToken }) {
-
+  const navigate = useNavigate()
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
 
@@ -26,23 +27,28 @@ export default function Login({ setToken }) {
       password
     });
     setToken(token);
+    navigate("/pessoa");
     
   }
 
   return(
     <div className="login">
-      <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          <p>Username</p>
-          <input type="text" onChange={e => setUserName(e.target.value)} />
-        </label>
-        <label>
-          <p>Password</p>
-          <input type="password" onChange={e => setPassword(e.target.value)} />
-        </label>
+        <h1>Log In</h1>
         <div>
-          <button type="submit">Submit</button>
+          <label>
+            <p>Username</p>
+            <input type="text" onChange={e => setUserName(e.target.value)} placeholder="Your user" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <p>Password</p>
+            <input type="password" onChange={e => setPassword(e.target.value)} placeholder="Your password"/>
+          </label>
+        </div>
+        <div>
+          <button class="btn-submit" type="submit">Log in</button>
         </div>
       </form>
     </div>

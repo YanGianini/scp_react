@@ -1,4 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+.pessoa{
+    background-color: #E4F1F6;
+    width: 80%;
+    margin-left: 10%;
+    font-family: 'Ubuntu', sans-serif;
+}
+
 .form_pessoa{
     margin-left: 1em;
-    
+    width: 40em;
+}
+
+.form_pessoa input[type="text"], input[type="date"], input[type="number"]{
+    border:none;
+    border-bottom: 1px solid #347B98;
+    padding: 5px 10px;
+    outline: none;
+    background-color: #E4F1F6;
+    border-radius: 0%;
+    width: 100%;
+}
+.form_pessoa input:focus{
+    border:none;
+    border-bottom: 1px solid #347B98;
+    padding: 5px 10px;
+    outline: none;
+    background-color: #E4F1F6;
+
+}
+.form-control {
+    box-shadow: none !important;
+}
+
+[placeholder]:focus::-webkit-input-placeholder {
+    transition: text-indent 0.4s 0.4s ease; 
+    text-indent: -100%;
+    opacity: 1;
+ }
+
+.display-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+.display-none {
+    display: none;
 }

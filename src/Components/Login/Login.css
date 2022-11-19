@@ -1,5 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+html, body {
+    margin: 0;
+    height: 100%;
+    background-color: #1A3E4C !important;
+}
+
 .login {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 10%;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #E4F1F6;
+    padding: 3em;
+    border-radius: 10px;
+}
+.login form h1{
+    color: #1A3E4C;
+    font-size: 28pt;
+    font-weight: 500;
+}
+
+.login form div{
+    margin-top: 1em;
+}
+.login form div p{
+    color: #347B98;
+    font-weight: 500;
+}
+
+.login form div input {
+    border:none;
+    border-bottom: 1px solid #347B98;
+    padding: 5px 10px;
+    outline: none;
+    background-color: #E4F1F6;
+}
+
+
+[placeholder]:focus::-webkit-input-placeholder {
+    transition: text-indent 0.4s 0.4s ease; 
+    text-indent: -100%;
+    opacity: 1;
+ }
+
+
+.btn-submit{
+    background-color: #347B98;
+    border-style: none;
+    border-radius: 5px;
+    padding: 0.5em;
+    color: #E4F1F6;
 }

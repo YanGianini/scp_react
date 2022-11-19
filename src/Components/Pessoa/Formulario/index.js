@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button, Form, FormGroup, Input, Label, FormText } from 'reactstrap';
-import {load} from '../Tabela/index'
 
 
 export default function Formulario() {
@@ -38,7 +37,6 @@ export default function Formulario() {
                 },
                 body: JSON.stringify(postData),
             });
-            load();
         } catch (err) {
             console.log(err);
         }
@@ -52,20 +50,20 @@ export default function Formulario() {
             </FormGroup>
             <FormGroup>
                 <div className="form-row">
-                    <div className="col-md-6">
+                    <div>
                         <Label for="cpf">CPF:</Label>
                         <Input id="cpf" type="text" value={post_cpf} onChange={(e) => setPost_cpf(e.target.value)} pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-                            title="Digite um CPF no formato: xxx.xxx.xxx-xx" />
+                            placeholder="Digite um CPF no formato: xxx.xxx.xxx-xx" />
                     </div>
-                    <div className="col-md-6">
+                    <div>
                         <Label for="matricula">Matrícula:</Label>
                         <Input id="matricula" type="number" value={post_matricula} onChange={(e) => setPost_matricula(e.target.value)} />
                     </div>
-                    <div className="col-md-6">
+                    <div>
                         <Label for="nascimento">Nascimento:</Label>
                         <Input id="nascimento" type="date" value={post_nascimento} onChange={(e) => setPost_nascimento(e.target.value)}/>
                     </div>
-                    <div className="col-md-6">
+                    <div>
                         <FormGroup onChange={(e) => setPost_genero(e.target.value)}>
                             <Label for="genero">Genero:</Label>
                             <FormGroup check>
@@ -85,18 +83,18 @@ export default function Formulario() {
                             </FormGroup>
                         </FormGroup>
                     </div>
-                    <div className="col-md-6">
+                    <div>
                         <Label for="foto">Foto:</Label>
                         <Input id="foto" type="file" value={post_foto} onChange={(e) => setPost_foto(e.target.value)}/>
                         <FormText color="muted">
                             Foto para reconhecimento.
                         </FormText>
                     </div>
-                    <div className="col-md-6">
+                    <div>
                         <Label for="user">Username:</Label>
                         <Input value={post_username} onChange={(e) => setPost_username(e.target.value)} type='text' placeholder='Informe o nome de usuário'></Input>                  
                     </div> 
-                    <div className="col-md-6">
+                    <div>
                         <Label for="user">Password:</Label>
                         <Input value={post_password} onChange={(e) => setPost_password(e.target.value)} type='text' placeholder='Informe a senha'></Input>                  
                     </div> 

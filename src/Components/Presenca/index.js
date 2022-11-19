@@ -28,7 +28,6 @@ function PresencaBox() {
                 console.log(err);
             });
     }
-
     
     return (
         <div>

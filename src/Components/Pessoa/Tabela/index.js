@@ -28,7 +28,6 @@ export default function Tabela() {
                 console.log(err);
             });
     }
-    module.exports = {load}
 
     async function deleteAll() {
         await fetch(`${baseURL}`, {
