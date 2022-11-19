@@ -21,6 +21,7 @@ export default function Tabela() {
                 return data.json();
             })
             .then(data => {
+                console.log(data)
                 setPresencas(data);
             })
             .catch(err => {
@@ -44,7 +45,7 @@ export default function Tabela() {
                     <tr>
                         <td>{user.idpresenca}</td>
                         <td>{user.data}</td>
-                        <td>{user.situacao}</td>
+                        <td>{user.situacao ? 'presente' : 'ausente'}</td>
                         <td>{user.pessoaidPessoa.nome}</td>
                     </tr>
                 ))}

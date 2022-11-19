@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, FormGroup, Input, Label, FormText } from 'reactstrap';
+import {load} from '../Tabela/index'
 
 
 export default function Formulario() {
@@ -37,7 +38,7 @@ export default function Formulario() {
                 },
                 body: JSON.stringify(postData),
             });
-
+            load();
         } catch (err) {
             console.log(err);
         }

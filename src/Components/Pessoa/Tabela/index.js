@@ -28,6 +28,7 @@ export default function Tabela() {
                 console.log(err);
             });
     }
+    module.exports = {load}
 
     async function deleteAll() {
         await fetch(`${baseURL}`, {
@@ -37,13 +38,15 @@ export default function Tabela() {
             .then(res => console.log(res));
     }
 
-    async function deleteById(id) {
+    async function deleteById() {
+        const id = delete_id.current.innerHTML;
         if (id) {
             await fetch(`${baseURL}/${id}`, { method: "delete" })
                 .then(res => res.json())
                 .then(res => console.log(res))
         }
     }
+
 
     return (
         <Table className="table-bordered text-center">
@@ -62,7 +65,8 @@ export default function Tabela() {
             <tbody>
                 {users.map(user => (
                     <tr key={user.idpessoa}>
-                        <td ref={delete_id}><Link to={`/presenca/${user.idpessoa}`}>{user.idpessoa}</Link></td>
+                        <td ref={delete_id} hidden>{user.idpessoa}</td>
+                        <td><Link to={`/presenca/${user.idpessoa}`}>{user.idpessoa}</Link></td>
                         <td><img src={user.foto} alt="foto" /></td>
                         <td>{user.nome}</td>
                         <td>{user.cpf}</td>
@@ -71,7 +75,7 @@ export default function Tabela() {
                         <td>{user.genero}</td>
                         <td>
                             <Button color="info" size="sm" >Editar</Button>
-                            <Button color="danger" size="sm" onClick={deleteById(`${user.idpessoa}`)}>Deletar</Button>
+                            <Button color="danger" size="sm" onClick={deleteById}>Deletar</Button>
                         </td>
                     </tr>
                 ))}
