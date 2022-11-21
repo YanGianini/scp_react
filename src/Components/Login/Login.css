@@ -15,6 +15,12 @@ html, body {
     margin-top: 10%;
 }
 
+h2 {
+    padding: 1em;
+    font-family: 'Ubuntu', sans-serif;
+    color: #1A3E4C;
+}
+
 .login form {
     display: flex;
     flex-direction: column;
@@ -55,9 +61,9 @@ html, body {
 
 
 .btn-submit{
-    background-color: #347B98;
-    border-style: none;
-    border-radius: 5px;
-    padding: 0.5em;
-    color: #E4F1F6;
+    background-color: #347B98 !important;
+    border-style: none !important;
+    border-radius: 5px !important;
+    padding: 0.5em !important;
+    color: #E4F1F6 !important;
 }

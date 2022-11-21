@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
-.pessoa{
+.content{
     background-color: #E4F1F6;
     width: 80%;
     margin-left: 10%;
     font-family: 'Ubuntu', sans-serif;
+    border-radius: 5px;
 }
 
-.form_pessoa{
+.form_default{
     margin-left: 1em;
-    width: 40em;
+    width: 30em;
 }
 
-.form_pessoa input[type="text"], input[type="date"], input[type="number"]{
+.form_default input[type="text"], input[type="date"], input[type="number"]{
     border:none;
     border-bottom: 1px solid #347B98;
     padding: 5px 10px;
@@ -21,7 +22,7 @@
     border-radius: 0%;
     width: 100%;
 }
-.form_pessoa input:focus{
+.form_default input:focus{
     border:none;
     border-bottom: 1px solid #347B98;
     padding: 5px 10px;
@@ -38,6 +39,47 @@
     text-indent: -100%;
     opacity: 1;
  }
+
+ .div-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+ }
+
+ .btn-submit{
+    background-color: #347B98;
+    border-style: none;
+    border-radius: 5px;
+    padding: 0.5em;
+    color: #E4F1F6;
+}
+
+.table-pessoa {
+    width: 90% !important;
+    margin-left: 5% !important;
+}
+
+.pessoa-tr th {
+    background-color: #347B98 !important;
+}
+
+.pessoa-tr td {
+    background-color: white !important;
+}
+
+.voltar-link {
+    text-decoration: none;
+    color: #1A3E4C;
+    font-weight: bold;
+    padding: 1em;
+}
+
+.acoes-td {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
 .display-flex {
     display: flex;

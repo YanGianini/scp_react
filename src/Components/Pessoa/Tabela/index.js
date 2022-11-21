@@ -12,7 +12,7 @@ export default function Tabela() {
 
     useEffect(() => {
         load();
-    }, []);
+    }, [users]);
 
     async function load() {
         await fetch(`${baseURL}`, {
@@ -48,10 +48,9 @@ export default function Tabela() {
 
 
     return (
-        <Table className="table-bordered text-center">
-            <thead className="thead-dark">
-                <tr>
-                    <th>ID</th>
+        <Table className="table-bordered text-center table-pessoa">
+            <thead>
+                <tr className='pessoa-tr'>
                     <th>Foto</th>
                     <th>Nome</th>
                     <th>CPF</th>
@@ -63,16 +62,16 @@ export default function Tabela() {
             </thead>
             <tbody>
                 {users.map(user => (
-                    <tr key={user.idpessoa}>
+                    <tr key={user.idpessoa} className='pessoa-tr'>
                         <td ref={delete_id} hidden>{user.idpessoa}</td>
-                        <td><Link to={`/presenca/${user.idpessoa}`}>{user.idpessoa}</Link></td>
                         <td><img src={user.foto} alt="foto" /></td>
                         <td>{user.nome}</td>
                         <td>{user.cpf}</td>
                         <td>{user.matricula}</td>
                         <td>{user.nascimento}</td>
                         <td>{user.genero}</td>
-                        <td>
+                        <td className='acoes-td'>
+                            <Link to={`/presenca/${user.idpessoa}`}><Button className='btn-submit' size="sm" >Presenças</Button></Link>
                             <Button color="info" size="sm" >Editar</Button>
                             <Button color="danger" size="sm" onClick={deleteById}>Deletar</Button>
                         </td>

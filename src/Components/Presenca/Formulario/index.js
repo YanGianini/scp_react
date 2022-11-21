@@ -34,15 +34,15 @@ export default function Formulario() {
     }
 
     return (
-        <Form className='form_presenca'>
+        <Form className='form_default'>
             
             <FormGroup>
                 <div className="form-row">
-                    <div className="col-md-6">
+                    <div>
                         <Label for="data">Data:</Label>
                         <Input id="data" type="date" value={post_data} onChange={(e) => setPost_data(e.target.value)}/>
                     </div>
-                    <div className="col-md-6">
+                    <div>
                         <FormGroup onChange={(e) => setPost_situacao(e.target.value)}>
                             <Label for="situacao">Situação:</Label>
                             <FormGroup check>
@@ -52,14 +52,17 @@ export default function Formulario() {
                             </FormGroup>
                             <FormGroup check>
                                 <Label check>
-                                    <Input type="radio" name="genero" value={false} /> Ausente
+                                    <Input type="radio" name="situacao" value={false} /> Ausente
                                 </Label>
                             </FormGroup>
                         </FormGroup>
                     </div>
                 </div>
             </FormGroup>
-            <Button onClick={postData}>Salvar</Button>
+            <div class="div-btn">
+                <Button className="btn-submit" onClick={postData}>Salvar</Button>
+            </div>
+            
         </Form>
     );
 }

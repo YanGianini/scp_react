@@ -43,13 +43,13 @@ export default function Formulario() {
     }
 
     return (
-        <Form className='form_pessoa'>
+        <Form className='form_default'>
             <FormGroup>
                 <Label for="nome">Nome:</Label>
                 <Input id="nome" value={post_nome} onChange={(e) => setPost_nome(e.target.value)} type='text' placeholder='Informe o nome do usuário' />
             </FormGroup>
             <FormGroup>
-                <div className="form-row">
+                <div>
                     <div>
                         <Label for="cpf">CPF:</Label>
                         <Input id="cpf" type="text" value={post_cpf} onChange={(e) => setPost_cpf(e.target.value)} pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
@@ -100,7 +100,9 @@ export default function Formulario() {
                     </div> 
                 </div>
             </FormGroup>
-            <Button onClick={postData}>Gravar</Button>
+            <div class="div-btn">
+                <Button className="btn-submit" onClick={postData}>Cadastrar</Button>
+            </div>
         </Form>
     );
 }

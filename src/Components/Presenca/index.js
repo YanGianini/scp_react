@@ -10,6 +10,12 @@ function PresencaBox() {
     const baseURL = `http://localhost:8080/pessoa/${params.id}`;
     const [users, setUsers] = useState([]);
     
+    const [isShown, setIsShown] = useState(true);
+
+    const handleClick = event => {
+        setIsShown(current => !current);
+      };
+
     useEffect(() => {
         load();
     }, []);
@@ -30,18 +36,18 @@ function PresencaBox() {
     }
     
     return (
-        <div>
-            <div className='text-center'>
-                <h2><Link to="/pessoa">Lista de Pessoas</Link></h2>
-            </div>
-            <div className="row">
-                <div className="col-md-6 my-3">
-                    <h2 className="font-weight-bold text-center"> Cadastro de Presenças do aluno {users.nome}</h2>
-                    <Formulario/>
+        <div class="content">
+            <div className="column">
+                <div style={{textAlign: "end"}}>
+                    <p><Link to="/pessoa" class="voltar-link">voltar</Link></p>
                 </div>
-                <div className="col-md-6 my-3">
+                <div>
                     <h2 className="font-weight-bold text-center"> Lista de Presenças </h2>
                     <Tabela/>
+                </div>
+                <div>
+                    <h2 className="font-weight-bold text-center" onClick={handleClick}> Cadastro de Presenças do aluno {users.nome}</h2>
+                    <div className={isShown ? 'display-none' : 'display-flex'}><Formulario />  </div>
                 </div>
             </div>
         </div>
