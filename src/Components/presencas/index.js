@@ -39,16 +39,16 @@ function PresencasBox(){
 
     async function postData() {
         console.log(post_situacao)
-        for (var s in post_situacao){
+        for (const i in post_situacao){
             const postData = {
                 data: post_data,
-                situacao: s.situacao,
-                pessoaidPessoa:{idpessoa: s.id},
+                situacao: post_situacao[i].situacao,
+                pessoaidPessoa:{idpessoa: post_situacao[i].id},
             };
-            console.log(s);
+            console.log(i);
             console.log(postData);
     
-            /*try {
+            try {
                 await fetch(`${baseURL}`, {
                     method: "POST",
                     headers: {
@@ -59,7 +59,7 @@ function PresencasBox(){
     
             } catch (err) {
                 console.log(err);
-            }*/
+            }
 
         }
         
