@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import { Link } from 'react-router-dom';
 import Formulario from './Formulario';
 import Tabela from './Tabela';
 import './pessoa.css'
@@ -17,6 +17,9 @@ function PessoaBox() {
                 
                 <div className="pessoa-lista">
                     <h2 className="font-weight-bold text-center"> Lista de Pessoas </h2>
+                    <div style={{textAlign: "end"}}>
+                        <p><Link to="/presencas" class="voltar-link">Cadastrar presenças</Link></p>
+                    </div>
                     <Tabela />
                 </div>
                 <div className="pessoa-cadastro">

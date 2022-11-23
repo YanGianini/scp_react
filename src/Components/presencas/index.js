@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { Button, Form, FormGroup, Input, Label} from 'reactstrap';
-import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 function PresencasBox(){
 
     
     const baseURL = "http://localhost:8080/presenca";
     const basePessoaURL = "http://localhost:8080/pessoa";
-    const params = useParams();
     const [post_data, setPost_data] = useState("");
     const [post_situacao, setPost_situacao] = useState([]);
     const [users, setUsers] = useState([]);
@@ -68,7 +67,10 @@ function PresencasBox(){
     return (
         <div class="content">
             <Form className='form_default'>
-            
+            <div style={{textAlign: "end"}}>
+                <p><Link to="/pessoa" class="voltar-link">voltar</Link></p>
+            </div>
+            <h2>Presenças</h2> 
             <FormGroup>
                 <div className="form-row">
                     <div>
