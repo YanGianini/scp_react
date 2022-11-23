@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" >
           <Route path="pessoa" element={<PessoaBox />} />
-          <Route path="login" element={<Login />} />
+          <Route path="login" element={<Login setToken={setToken}/>} />
           <Route path="presenca/:id" element={<PresencaBox/>}/>
           <Route path="presencas" element={<PresencasBox/>} />
         </Route>
