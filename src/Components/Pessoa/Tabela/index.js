@@ -31,13 +31,6 @@ export default function Tabela() {
             });
     }
 
-    async function deleteAll() {
-        await fetch(`${baseURL}`, {
-            method: "delete"
-        })
-            .then(res => res.json())
-            .then(res => console.log(res));
-    }
 
     async function deleteById() {
         const id = delete_id.current.innerHTML;
@@ -80,7 +73,7 @@ export default function Tabela() {
                     </tr>
                 ))}
             </tbody>
-            <Button color="danger" size="sm" onClick={deleteAll}>Delete All</Button>
+            
         </Table>
     );
 }

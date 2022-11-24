@@ -43,21 +43,9 @@ export default function Tabela() {
         }
     }
 
-    const changeFilter = (e) =>{
-        console.log(e.target.value);
-        exibe_presencas = exibe_presencas.filter(presenca => (presenca.data === parseInt(e)))
-    }
 
     return (
         <div>
-            <div>
-                <label for="data">Mês</label>
-                <select id='data' onChange={(e) => changeFilter(e)}>
-                    {datas.map((option) => (
-                        <option value={option.value}>{option.mes}</option>
-                    ))}
-                </select>
-            </div>
             <Table className="table-bordered text-center table-pessoa">
                 <thead>
                     <tr className='pessoa-tr'>

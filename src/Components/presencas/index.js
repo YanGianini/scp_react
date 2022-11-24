@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { Button, Form, FormGroup, Input, Label} from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 function PresencasBox(){
 
-    
+    const navigate = useNavigate()
     const baseURL = "http://localhost:8080/presenca";
     const basePessoaURL = "http://localhost:8080/pessoa";
     const [post_data, setPost_data] = useState("");
@@ -60,7 +62,7 @@ function PresencasBox(){
                 console.log(err);
             }
 
-        }
+        }navigate("/pessoa");
         
     }
 
