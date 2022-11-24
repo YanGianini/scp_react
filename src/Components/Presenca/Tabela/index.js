@@ -8,7 +8,11 @@ export default function Tabela() {
     const params = useParams();
     const delete_id = useRef(null);
     const [presencas, setPresencas] = useState([]);
-    const exibe_presencas = presencas.filter(presenca => (presenca.pessoaidPessoa.idpessoa === parseInt(params.id)))
+    let exibe_presencas = presencas.filter(presenca => (presenca.pessoaidPessoa.idpessoa === parseInt(params.id)))
+    const datas = [{value: 1, mes: 'Janeiro'}, {value: 2, mes: 'Fevereiro'},
+     {value: 3, mes: 'Março'}, {value: 4, mes: 'Abril'},{value: 5, mes: 'Maio'},
+     {value: 6, mes: 'Junho'}, {value: 7, mes: 'Julho'}, {value: 8, mes: 'Agosto'}, 
+     {value: 9, mes: 'Setembro'}, {value: 10, mes: 'Outubro'}, {value: 11, mes: 'Novembro'}, {value: 12, mes: 'Dezembro'}]
 
     useEffect(() => {
         load();
@@ -22,7 +26,7 @@ export default function Tabela() {
                 return data.json();
             })
             .then(data => {
-                console.log(data)
+                
                 setPresencas(data);
             })
             .catch(err => {
@@ -39,26 +43,41 @@ export default function Tabela() {
         }
     }
 
+    const changeFilter = (e) =>{
+        console.log(e.target.value);
+        exibe_presencas = exibe_presencas.filter(presenca => (presenca.data === parseInt(e)))
+    }
+
     return (
-        <Table className="table-bordered text-center table-pessoa">
-            <thead>
-                <tr className='pessoa-tr'>
-                    <th>ID</th>
-                    <th>data</th>
-                    <th>Situação</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                {exibe_presencas.map(user => (
+        <div>
+            <div>
+                <label for="data">Mês</label>
+                <select id='data' onChange={(e) => changeFilter(e)}>
+                    {datas.map((option) => (
+                        <option value={option.value}>{option.mes}</option>
+                    ))}
+                </select>
+            </div>
+            <Table className="table-bordered text-center table-pessoa">
+                <thead>
                     <tr className='pessoa-tr'>
-                        <td ref={delete_id}>{user.idpresenca}</td>
-                        <td>{user.data}</td>
-                        <td>{user.situacao ? 'presente' : 'ausente'}</td>
-                        <td><Button color="danger" size="sm" onClick={deleteById}>Deletar</Button></td>
+                        <th>ID</th>
+                        <th>data</th>
+                        <th>Situação</th>
+                        <th>Ações</th>
                     </tr>
-                ))}
-            </tbody>
-        </Table>
+                </thead>
+                <tbody>
+                    {exibe_presencas.map(user => (
+                        <tr className='pessoa-tr'>
+                            <td ref={delete_id}>{user.idpresenca}</td>
+                            <td>{user.data}</td>
+                            <td>{user.situacao ? 'presente' : 'ausente'}</td>
+                            <td><Button color="danger" size="sm" onClick={deleteById}>Deletar</Button></td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
+        </div>
     );
 }

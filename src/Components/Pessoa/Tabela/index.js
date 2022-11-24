@@ -5,10 +5,9 @@ import { Link } from "react-router-dom";
 export default function Tabela() {
 
     const baseURL = "http://localhost:8080/pessoa";
-
     const delete_id = useRef(null);
-
     const [users, setUsers] = useState([]);
+    const token = JSON.parse(localStorage.getItem('token')).jwtToken; 
 
     useEffect(() => {
         load();
@@ -17,6 +16,9 @@ export default function Tabela() {
     async function load() {
         await fetch(`${baseURL}`, {
             method: 'GET',
+            headers:{
+                Authorization: `Bearer ${token}`
+            }
         })
             .then(data => {
                 return data.json();

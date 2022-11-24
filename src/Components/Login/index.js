@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
 
+import logo from './img/logo.png';
 import './Login.css';
 
 async function loginUser(credentials) {
@@ -34,7 +35,9 @@ export default function Login({ setToken }) {
   return(
     <div className="login">
       <form onSubmit={handleSubmit}>
+
         <h1>Log In</h1>
+        <img src={logo} alt="Logo da Instituição" style={{width:'120px', height:'120px'}}/>
         <div>
           <label>
             <p>Username</p>

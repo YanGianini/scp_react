@@ -75,7 +75,7 @@ function PresencasBox(){
                 <div className="form-row">
                     <div>
                         <Label for="data">Data:</Label>
-                        <Input id="data" type="date" value={post_data} onChange={(e) => setPost_data(e.target.value)}/>
+                        <Input id="data" type="date" value={post_data} onChange={(e) => setPost_data(e.target.value)} max={new Date().toISOString().split('T')[0]}/>
                     </div>
                     {users.map((user, i) => (
                     <div>

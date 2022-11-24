@@ -22,6 +22,7 @@
     border-radius: 0%;
     width: 100%;
 }
+
 .form_default input:focus{
     border:none;
     border-bottom: 1px solid #347B98;
